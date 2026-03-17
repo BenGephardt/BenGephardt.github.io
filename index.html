@@ -18,5 +18,45 @@
 
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- SECTION: Header  -->
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <div class="brand">
+          <p class="brand-mark" aria-hidden="true">BG</p>
+          <div class="brand-text">
+            <span class="brand-name">Benjamin Gephardt</span>
+            <span class="brand-role">Front-End Web Developer</span>
+          </div>
+        </div>
+
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb"></span>
+            </span>
+            <span class="theme-toggle-label">Light</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="main" role="main">
+      <!-- Main content -->
+
+    </main>
+  </body>
 </html>
