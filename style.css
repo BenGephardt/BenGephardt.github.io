@@ -57,7 +57,7 @@
   --color-border-strong: rgba(227, 223, 213, 0.25);
 }
 
-/* 2. GLOBAL RESET AND BASE STYLES */
+/* --- 2. GLOBAL RESET AND BASE STYLES --- */
 
 *,
 *::before,
@@ -187,4 +187,151 @@ p {
 
 .skip-link:focus {
   top: var(--space-3);
+}
+
+/* --- 3. COMPONENT STYLES --- */
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  background-color: color-mix(in srgb, var(--color-bg) 90%, transparent);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-3);
+  gap: var(--space-4);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.brand-mark {
+  margin: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+}
+
+.brand-role {
+  font-size: 0.8rem;
+  color: rgba(46, 42, 37, 0.7);
+}
+
+[data-theme="dark"] .brand-role {
+  color: rgba(227, 223, 213, 0.7);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: var(--space-3);
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  padding-block: var(--space-1);
+  border-bottom: 1px solid transparent;
+}
+
+.nav-list a:hover {
+  border-bottom-color: var(--color-accent-soft);
+}
+
+.nav-list a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(42, 79, 60, 0.45);
+}
+
+[data-theme="dark"] .nav-list a:focus-visible {
+  box-shadow: 0 0 0 3px rgba(124, 163, 138, 0.6);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--color-border-subtle);
+  padding-block: var(--space-4);
+}
+
+.footer-inner {
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 0.85rem;
+  color: rgba(44, 38, 33, 0.7);
+}
+
+[data-theme="dark"] .footer-text {
+  color: rgba(230, 226, 216, 0.7);
+}
+
+/* 4. --- RESPONSIVE LAYOUT --- */
+@media (min-width: 720px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: flex-start;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-card {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+
+  .contact-body {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 639px) {
+  .site-nav {
+    gap: var(--space-3);
+  }
+
+  .nav-list {
+    gap: var(--space-2);
+  }
+
+  .brand-role {
+    display: none;
+  }
 }
