@@ -1,3 +1,5 @@
+/* --- 1. DESIGN TOKENS --- */
+
 :root {
   /* Color tokens - light theme */
   --color-bg: #f5f4f0; /* Sand */
@@ -55,7 +57,7 @@
   --color-border-strong: rgba(227, 223, 213, 0.25);
 }
 
-/* Global reset-lite and base styles */
+/* 2. GLOBAL RESET AND BASE STYLES */
 
 *,
 *::before,
@@ -107,4 +109,30 @@ a:focus-visible {
 
 [data-theme="dark"] a:focus-visible {
   box-shadow: 0 0 0 3px rgba(124, 163, 138, 0.6);
+}
+
+/* Heading Styles */
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-3);
+}
+
+h1 {
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+p {
+  margin: 0 0 var(--space-3);
 }
