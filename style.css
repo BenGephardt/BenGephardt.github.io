@@ -734,6 +734,25 @@ p {
     grid-template-columns: 1fr 1.5fr;
     gap: var(--space-6);
   }
+
+  .hero-identity-col {
+    justify-content: flex-start; 
+    gap: var(--space-5); 
+  }
+
+  .hero-photo {
+    order: 2; 
+    width: 100%;
+    
+    max-width: clamp(220px, 35vw, 280px); 
+    
+    height: auto;
+    aspect-ratio: 4 / 5; 
+    border-radius: var(--radius-lg); 
+    margin: 0; 
+    object-fit: cover; 
+    align-self: flex-start; 
+  }
 }
 
 @media (max-width: 850px) {
@@ -746,10 +765,23 @@ p {
     max-width: 100%;
   }
 
+  .hero-photo {
+    align-self: center; 
+    aspect-ratio: 5 / 4; 
+    width: 100%;
+    max-width: 300px; 
+  }
+
   .hero-identity-col,
   .hero-content {
     justify-content: flex-start;
     gap: var(--space-5);
+  }
+  
+  .hero-title {
+    max-width: 100%; 
+    word-break: normal; 
+    font-size: clamp(1.8rem, 6vw, 2.25rem); 
   }
 }
 
@@ -768,7 +800,7 @@ p {
   }
 
   .nav-list a {
-    padding: var(--space-2) var(--space-2);
+    padding: var(--space-2) var(--space-3); 
   }
 
   .brand-role {
