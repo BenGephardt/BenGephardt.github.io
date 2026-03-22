@@ -225,8 +225,11 @@ p {
   background-color: var(--color-accent-soft);
   border-color: var(--color-accent-soft);
   color: #fdfaf6;
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-soft);
+}
+
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn-primary:hover {
+  color: #1c1a18;
 }
 
 .btn-secondary {
