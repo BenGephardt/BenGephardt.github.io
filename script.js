@@ -31,6 +31,20 @@
 
   applyTheme(initialTheme, false);
 
+  // Listen for system theme changes, apply if user hasn't explicitly chosen theme
+  if (window.matchMedia) {
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        const hasStoredChoice =
+          window.localStorage.getItem(STORAGE_KEY) === "light" ||
+          window.localStorage.getItem(STORAGE_KEY) === "dark";
+        if (!hasStoredChoice) {
+          applyTheme(e.matches ? "dark" : "light", false);
+        }
+      });
+  }
+
   // Attach listeners
   themeToggle.addEventListener("click", () => {
     const current =
