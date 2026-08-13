@@ -137,7 +137,7 @@ a:focus-visible {
   overflow: visible;
   clip: auto;
   white-space: normal;
-  
+
   /* Visual Styling */
   top: var(--space-3);
   left: 50%;
@@ -265,7 +265,11 @@ p {
 
 .btn-ghost:hover {
   border-color: var(--color-accent-soft);
-  background-color: color-mix(in srgb, var(--color-accent-soft) 12%, transparent);
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent-soft) 12%,
+    transparent
+  );
 }
 
 .btn:focus-visible {
@@ -397,14 +401,19 @@ p {
   font-size: 0.78rem;
   color: var(--color-text);
   background-color: transparent;
-  transition: border-color var(--transition-fast),
+  transition:
+    border-color var(--transition-fast),
     background-color var(--transition-fast);
   white-space: nowrap;
 }
 
 .skills-list li:hover {
   border-color: var(--color-accent-soft);
-  background-color: color-mix(in srgb, var(--color-accent-soft) 10%, transparent);
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent-soft) 10%,
+    transparent
+  );
 }
 
 /* --- 4. LAYOUT SECTIONS (Macro-Components) --- */
@@ -561,7 +570,6 @@ p {
   overflow-wrap: break-word;
   word-break: keep-all;
 }
-
 
 /* right column / Details */
 .hero-content {

@@ -64,7 +64,7 @@
       themeToggle.click();
     }
   });
-  
+
   // Core function to apply theme and optionally persist choice
   function applyTheme(theme, persist) {
     const isDark = theme === "dark";
