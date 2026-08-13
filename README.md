@@ -1,70 +1,92 @@
-# Benjamin Gephardt ◆ Front-End Developer Portfolio
+# Benjamin Gephardt ◆ Portfolio
 
-🚀 [**View the Live Portfolio**](https://bengephardt.github.io/)  
-A high-performance, accessible, and responsive personal portfolio built from the ground up without frameworks.
+🚀 [**View the Live Portfolio**](https://bengephardt.github.io/)
+
+_An accessible, responsive personal portfolio built without frameworks._
 
 ## 📜 Project Description
 
-This repository houses my professional front-end developer portfolio. It serves as a living case study of my core philosophy: crafting accessible, responsive interfaces that feel effortless to use. Drawing on a unique background in Behavioral Therapy and a BFA in Illustration, this site bridges the gap between deep user empathy and exact visual precision.
+This repository houses my portfolio site. I'm an accessibility-focused front-end developer and a Registered Behavior Technician — three years collecting clinical data on a tablet during ABA sessions taught me what happens when software fails the person using it, and that's what I build against now.
 
-Built with strict adherence to modern web standards, the portfolio eschews heavy JavaScript frameworks in favor of robust semantic HTML, highly structured CSS architecture, and progressively enhanced Vanilla JavaScript. The result is an incredibly fast, WCAG-compliant experience that holds up in the real world—not just on design mockups.
+The site is built with semantic HTML, structured CSS, and vanilla JavaScript. No frameworks, no build step, no dependencies — partly for performance, partly because a portfolio should be legible to anyone who opens the source.
 
 ## ⚙️ Key Features & Architecture
 
 ### ⚡ Performance & Asset Delivery
-* **Zero Dependencies:** Engineered completely from scratch using vanilla web technologies to guarantee maximum performance and a microscopic bundle size.
-* **Optimized Asset Pipeline:** Utilizes next-generation WebP image formatting combined with native `loading="lazy"` attributes to ensure rapid initial page loads.
-* **Zero Cumulative Layout Shift (CLS):** Implements modern `aspect-ratio` mathematics to reserve DOM space for media before it loads, preventing layout "jumping" and ensuring a perfectly stable reading experience.
 
-### 🎨 Immersive Design System
-* **Bespoke Theme Engine:** Features a custom-built Light/Dark mode toggle (shifting seamlessly between "Sand/Rust" and "Dark Slate/Pale Sage") powered by a centralized CSS variable token system.
-* **Fluid Typography & Spacing:** Utilizes `clamp()` functions and fractional viewport units to ensure typography perfectly scales across 4K monitors, tablets, and mobile devices without arbitrary media query breakpoints.
-* **Defensive CSS Layouts:** Employs advanced CSS Grid and Flexbox techniques, including a custom "Grid Stacking" method for project cards that creates a beautifully layered UI while maintaining strict aspect ratios.
+- **Zero Dependencies:** Built with vanilla web technologies — no framework, no bundler, no build step.
+- **Optimized Assets:** WebP images with native `loading="lazy"` and explicit `width`/`height` attributes.
+- **Layout Stability:** Grid stacking reserves space for media before it loads, preventing content from jumping as images arrive.
 
-### ♿ Uncompromising Accessibility (WCAG 2.1 AA)
-* **Screen Reader Optimized:** Deep integration of semantic HTML5 landmarks (`<main>`, `<header>`, `<nav>`, `<article>`), logical heading hierarchies, and descriptive `aria-labels`.
-* **Keyboard Navigation:** Features a visually hidden, focusable "Skip to main content" link, alongside custom, high-contrast `:focus-visible` outlines for all interactive elements to support motor-impaired users.
-* **Secure External Routing:** All outbound links utilize `target="_blank"` strictly paired with `rel="noopener noreferrer"` to protect user security and prevent cognitive disorientation for assistive tech users.
+### 🎨 Design System
+
+- **Theme Engine:** A Light/Dark toggle (Sand/Rust and Dark Slate/Pale Sage) driven by a centralized CSS custom property token system, with `prefers-color-scheme` as the default and `localStorage` for persistence.
+- **Fluid Typography:** `clamp()` and viewport units scale type across screen sizes without arbitrary breakpoints.
+- **Responsive Layouts:** CSS Grid and Flexbox, including a grid-stacking method for project cards that layers a text fallback beneath the image in the same cell.
+
+### ♿ Accessibility
+
+- **Semantic Structure:** HTML5 landmarks (`<main>`, `<header>`, `<nav>`, `<article>`), logical heading hierarchy, and descriptive `aria-label`s where needed.
+- **Keyboard Navigation:** A visually hidden, focusable "Skip to main content" link, plus high-contrast `:focus-visible` outlines on every interactive element.
+- **Theme Toggle:** Uses a native `<button>` with `aria-pressed` reflecting current state.
+- **External Links:** `target="_blank"` paired with `rel="noopener noreferrer"`, and an explicit "(opens in a new tab)" in the accessible name so screen-reader users aren't surprised by the context switch.
+
+Targeting WCAG 2.1 AA.
 
 ---
 
 ## 👁️ The Developer's Perspective
 
-### 🔮 Deep Dive: Solving Architectural Challenges
+### 🔮 Deep Dive: Architectural Decisions
 
-#### 1. Preventing Layout Shift via Grid Stacking
-A common issue in image-heavy project grids is the "pop-in" effect, where text content is shoved downwards once high-resolution images finish downloading. To solve this without relying on complex JavaScript loaders, I implemented a **CSS Grid Stacking Strategy**. By assigning both a text-based "fallback skeleton" and the actual `<img />` to the exact same Grid cell (`grid-area: 1 / 1`), the layout remains perfectly rigid. When the image loads, it simply sits on top of the fallback via `z-index`, resulting in a flawless, 0-CLS user experience.
+#### 1. Preventing Layout Shift with Grid Stacking
 
-#### 2. Scalable Theme Architecture
-Rather than writing hundreds of duplicate CSS rules for Dark Mode, I engineered a highly scalable **Design Token System**. By defining color semantics at the `:root` level (e.g., `--color-bg`, `--color-accent`), the dark theme is achieved simply by overriding those core variables within a `[data-theme="dark"]` attribute selector. This keeps the CSS incredibly DRY (Don't Repeat Yourself) and makes adding future themes completely frictionless.
+Image-heavy project grids tend to shove text downward once high-resolution images finish loading. Rather than reach for a JavaScript loader, I placed both a text fallback and the `<img>` in the same grid cell (`grid-area: 1 / 1`). The layout stays rigid from first paint; when the image loads it simply sits on top via `z-index`.
 
-#### 3. Security and Accessibility in Link Handling
-When linking out to external case studies, GitHub repositories, and live client sites, opening new tabs is a standard UX practice, but it introduces security vulnerabilities (`window.opener` hijacking) and accessibility hurdles. I combated this by standardizing an exact link anatomy across the site: combining `target="_blank"` with `rel="noopener noreferrer"` to sever malicious background threads, while injecting explicit `aria-label="(opens in a new tab)"` text to warn screen-reader users of the context switch.
+#### 2. Theme Architecture Without Duplication
+
+Rather than writing a parallel set of CSS rules for dark mode, colors are defined semantically at `:root` (`--color-bg`, `--color-accent`, `--color-text`). The dark theme overrides those variables inside a `[data-theme="dark"]` selector. Adding a third theme would mean one more variable block, not a second stylesheet.
+
+The toggle respects `prefers-color-scheme` on first visit and only overrides it once the user makes an explicit choice — and it keeps listening for system changes if they never do.
+
+#### 3. External Links: Security and Context
+
+Opening external links in a new tab is standard practice, but it introduces a `window.opener` vulnerability and a disorienting context switch for assistive tech users. Every outbound link on the site pairs `target="_blank"` with `rel="noopener noreferrer"`, and includes "(opens in a new tab)" in its `aria-label` so screen-reader users know what's about to happen.
 
 ---
 
 ## 📦 Tech Stack
 
-* **HTML5:** Highly semantic, accessible markup architecture.
-* **CSS3:** Custom Properties (CSS Variables), CSS Grid, Flexbox, BEM-inspired naming conventions, and fluid typography.
-* **Vanilla JavaScript (ES6+):** Clean, dependency-free DOM manipulation and event handling.
-* **Typography:** [Google Fonts](https://fonts.google.com/) (`Lora` for elegant serif headings, `Inter` for highly legible sans-serif body copy).
+- **HTML5:** Semantic, accessible markup.
+- **CSS3:** Custom properties, Grid, Flexbox, `clamp()` fluid typography, and `color-mix()`.
+- **Vanilla JavaScript (ES6+):** Dependency-free DOM manipulation, theme persistence via `localStorage`.
+- **Typography:** [Google Fonts](https://fonts.google.com/) — *Lora* for headings, *Inter* for body copy.
 
 ---
 
 ## 🗝️ Installation & Setup
 
-Because this project relies entirely on native web technologies without a build step or bundler, getting it running locally takes seconds.
+No build step or bundler, so running it locally takes seconds.
 
 **1. Clone the Repository:**
+
 ```bash
-git clone [https://github.com/BenGephardt/benjamin-portfolio.git](https://github.com/BenGephardt/benjamin-portfolio.git)
-cd benjamin-portfolio
+git clone https://github.com/BenGephardt/bengephardt.github.io.git
+cd bengephardt.github.io
 ```
 
 **2. Run Locally:**
-Since there are no dependencies to install, simply open the `index.html` file directly in your browser. For the best development experience, open the project folder in VS Code and start the **Live Server** extension to enable hot-reloading.
+
+Open `index.html` directly in your browser, or use the Live Server extension in VS Code for auto-reload.
+
+**3. Code Quality:**
+
+This project uses Prettier for formatting:
+
+```bash
+npx prettier . --write
+```
 
 ---
 
-📬 **Contact:** BenGephardt - [https://github.com/BenGephardt](https://github.com/BenGephardt)
+📬 **Contact:** BenGephardt — [https://github.com/BenGephardt](https://github.com/BenGephardt)
