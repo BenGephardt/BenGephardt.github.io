@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Benjamin Gephardt · Front-End Web Developer</title>
+    <title>Benjamin Gephardt · Accessibility-Focused Front-End Developer</title>
     <meta
       name="description"
-      content="Portfolio of Benjamin Gephardt, a front-end web developer based in Manitou Springs, Colorado, focused on accessible, responsive, and performant web applications."
+      content="Portfolio of Benjamin Gephardt — accessibility-focused front-end developer and Registered Behavior Technician in Colorado Springs. WCAG 2.2, React, and tools built for autistic and disabled users."
     />
 
     <!-- SECTION: Typography -->
@@ -70,7 +70,10 @@
               <div class="hero-identity-group">
                 <p class="eyebrow">About</p>
                 <h1 id="about-heading" class="hero-title">
-                  Hi, I'm <span class="hero-name-block"><span class="hero-name">Benjamin Gephardt</span>,</span>
+                  Hi, I'm
+                  <span class="hero-name-block"
+                    ><span class="hero-name">Benjamin Gephardt</span>,</span
+                  >
                   a front-end web developer based in Manitou Springs, Colorado.
                 </h1>
               </div>
@@ -86,36 +89,44 @@
             <div class="hero-content">
               <div class="hero-bio-copy">
                 <p class="hero-lead">
-                  I craft accessible, responsive interfaces where every
-                  interaction feels intentional. A background in Behavioral
-                  Therapy and a BFA in Illustration gives me a trained eye for
-                  inclusive design and a visual precision that shows in the code.
+                  I build accessible, responsive interfaces where every
+                  interaction feels intentional. For the last three years I've
+                  worked as a Registered Behavior Technician at an autism
+                  center, collecting clinical data on a tablet during sessions —
+                  which is where I learned what happens when software fails the
+                  person using it.
                 </p>
                 <p>
-                  I focus on thoughtful details, robust semantics, and real-world
-                  performance that holds up beyond a case-study screenshot. I
-                  thrive collaborating with teams to turn complex requirements
-                  into resilient, WCAG-compliant UI patterns.
+                  I focus on thoughtful details, robust semantics, and
+                  real-world performance that holds up beyond a case-study
+                  screenshot. I thrive collaborating with teams to turn complex
+                  requirements into resilient, WCAG-compliant UI patterns.
                 </p>
                 <p>
-                  When I'm offline, you'll find me reimagining historical recipes
-                  in the kitchen, assembling a Charles Wysocki puzzle, or deep in
-                  planning for my latest Dungeons & Dragons campaign.
+                  When I'm offline, you'll find me reimagining historical
+                  recipes in the kitchen, assembling a Charles Wysocki puzzle,
+                  or deep in planning for my latest Dungeons & Dragons campaign.
                 </p>
               </div>
 
               <div class="hero-actions-group">
                 <div class="hero-cta-row">
-                  <a class="btn btn-primary" href="#projects">View selected work</a>
+                  <a class="btn btn-primary" href="#projects"
+                    >View selected work</a
+                  >
                   <a class="btn btn-ghost" href="#contact">Get in touch</a>
                 </div>
 
                 <div class="skills" aria-labelledby="skills-heading">
-                  <h2 id="skills-heading" class="skills-heading">Core skills</h2>
+                  <h2 id="skills-heading" class="skills-heading">
+                    Core skills
+                  </h2>
 
                   <div class="skills-groups">
                     <div class="skills-group">
-                      <h3 class="skills-group-title">Languages &amp; Frameworks</h3>
+                      <h3 class="skills-group-title">
+                        Languages &amp; Frameworks
+                      </h3>
                       <ul class="skills-list">
                         <li>JavaScript (ES6+)</li>
                         <li>React</li>
@@ -221,18 +232,20 @@
                   <div>
                     <dt>Tech stack</dt>
                     <dd>
-                      React 18, React Router, Vite, modern CSS, accessible UI
-                      components.
+                      React 18, React Router, Vite, custom service worker (PWA),
+                      modern CSS.
                     </dd>
                   </div>
                   <div>
                     <dt>Solution</dt>
                     <dd>
-                      Built a searchable, filterable multi-page app with
-                      seamless client-side routing, semantic heading structure,
-                      and full ARIA-compliant keyboard navigation to deliver a
-                      clean, distraction-free experience players can rely on at
-                      the table.
+                      Worked around an API that can't filter by class and level
+                      together by fetching both lists in parallel and
+                      intersecting them with a Set. Built as a PWA with a
+                      hand-written service worker, so repeat lookups are instant
+                      and the spellbook keeps working when the wifi at the table
+                      doesn't. Keyboard navigation, ARIA labels, and
+                      prefers-reduced-motion support throughout.
                     </dd>
                   </div>
                 </dl>
@@ -299,10 +312,11 @@
                   <div>
                     <dt>Problem</dt>
                     <dd>
-                      The center lacked a modern web presence; staff couldn't
-                      update content without developer help, and the existing
-                      site failed to clearly communicate services to families
-                      seeking support.
+                      The center's existing site was badly dated and looked
+                      rough on phones, where most parents find it. Staff
+                      couldn't update content without a developer; a real
+                      constraint for a nonprofit that can't keep one on
+                      retainer.
                     </dd>
                   </div>
                   <div>
@@ -315,10 +329,12 @@
                   <div>
                     <dt>Solution</dt>
                     <dd>
-                      Designed an information-first layout with WCAG-compliant
-                      contrast, clear navigation, and structured content before
-                      handing off a CMS-backed site the team could manage and
-                      update entirely on their own.
+                      Restructured the information architecture around what
+                      families searching for autism services need first, kept it
+                      on Squarespace deliberately so staff can maintain it
+                      independently, and trained the administrator hands-on. She
+                      maintains it herself now. Built as the RBT who works
+                      there.
                     </dd>
                   </div>
                 </dl>
@@ -368,33 +384,38 @@
               <div class="project-body">
                 <h3 class="project-title">GridBoard</h3>
                 <p class="project-tagline">
-                  A fully responsive, WCAG-compliant virtual keyboard built with
-                  CSS Grid and event-driven JavaScript.
+                  A dependency-free on-screen keyboard for users with limited
+                  motor input, and a case study in what automated accessibility
+                  testing misses.
                 </p>
 
                 <dl class="project-meta">
                   <div>
                     <dt>Problem</dt>
                     <dd>
-                      Most on-screen keyboards fail basic accessibility
-                      standards, being hard to navigate without a mouse, lacking
-                      visible focus states, and breaking down on small screens.
+                      On-screen keyboards are used by people who can't use a
+                      physical one, but most compress their keys below usable
+                      touch-target sizes on mobile and break down without a
+                      mouse.
                     </dd>
                   </div>
                   <div>
                     <dt>Tech stack</dt>
                     <dd>
-                      CSS Grid layout, ARIA attributes, vanilla JS event
-                      delegation.
+                      Vanilla JavaScript, CSS Grid (desktop) and Flexbox
+                      (mobile), ARIA, event delegation. No frameworks, no build
+                      step.
                     </dd>
                   </div>
                   <div>
                     <dt>Solution</dt>
                     <dd>
-                      Implemented a grid-based key layout with high-visibility
-                      focus states, logical tab order, and efficient event
-                      delegation to produce a responsive, low-latency keyboard
-                      usable entirely without a mouse.
+                      Scores 100/100 on Lighthouse accessibility with zero axe
+                      DevTools issues. More usefully, auditing it manually found
+                      four failures no scanner caught; including Shift being
+                      unimplemented, which meant a user who couldn't reach a
+                      physical keyboard couldn't type a question mark.
+                      Documented openly in the repo's Known Limitations.
                     </dd>
                   </div>
                 </dl>
@@ -484,7 +505,7 @@
               <h3 class="contact-subheading">Resume</h3>
               <p>View a print-friendly PDF version of my resume.</p>
               <a
-                href="./assets/Benjamin_Gephardt_Front_End_Developer_Resume.pdf"
+                href="./assets/Benjamin-Gephardt-Front-End-Developer-Resume.pdf"
                 class="btn btn-secondary"
                 download
               >
