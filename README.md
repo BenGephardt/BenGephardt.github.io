@@ -6,15 +6,15 @@ _An accessible, responsive personal portfolio built without frameworks._
 
 ## 📜 Project Description
 
-This repository houses my portfolio site. I'm an accessibility-focused front-end developer and a Registered Behavior Technician — three years collecting clinical data on a tablet during ABA sessions taught me what happens when software fails the person using it, and that's what I build against now.
+This repository houses my portfolio site. I'm an accessibility-focused front-end developer and a Registered Behavior Technician. Three years collecting clinical data on a tablet during ABA sessions taught me what happens when software fails the person using it, and that's what I build against now.
 
-The site is built with semantic HTML, structured CSS, and vanilla JavaScript. No frameworks, no build step, no dependencies — partly for performance, partly because a portfolio should be legible to anyone who opens the source.
+The site is built with semantic HTML, structured CSS, and vanilla JavaScript. No frameworks, no build step, no dependencies: partly for performance, partly because a portfolio should be legible to anyone who opens the source.
 
 ## ⚙️ Key Features & Architecture
 
 ### ⚡ Performance & Asset Delivery
 
-- **Zero Dependencies:** Built with vanilla web technologies — no framework, no bundler, no build step.
+- **Zero Dependencies:** Built with vanilla web technologies. No framework, no bundler, no build step.
 - **Optimized Assets:** WebP images with native `loading="lazy"` and explicit `width`/`height` attributes.
 - **Layout Stability:** Grid stacking reserves space for media before it loads, preventing content from jumping as images arrive.
 
@@ -47,7 +47,7 @@ Image-heavy project grids tend to shove text downward once high-resolution image
 
 Rather than writing a parallel set of CSS rules for dark mode, colors are defined semantically at `:root` (`--color-bg`, `--color-accent`, `--color-text`). The dark theme overrides those variables inside a `[data-theme="dark"]` selector. Adding a third theme would mean one more variable block, not a second stylesheet.
 
-The toggle respects `prefers-color-scheme` on first visit and only overrides it once the user makes an explicit choice — and it keeps listening for system changes if they never do.
+The toggle respects `prefers-color-scheme` on first visit and only overrides it once the user makes an explicit choice. It also keeps listening for system changes if they never do.
 
 #### 3. External Links: Security and Context
 
@@ -60,7 +60,7 @@ Opening external links in a new tab is standard practice, but it introduces a `w
 - **HTML5:** Semantic, accessible markup.
 - **CSS3:** Custom properties, Grid, Flexbox, `clamp()` fluid typography, and `color-mix()`.
 - **Vanilla JavaScript (ES6+):** Dependency-free DOM manipulation, theme persistence via `localStorage`.
-- **Typography:** [Google Fonts](https://fonts.google.com/) — *Lora* for headings, *Inter* for body copy.
+- **Typography:** [Google Fonts](https://fonts.google.com/). _Lora_ for headings, _Inter_ for body copy.
 
 ---
 
@@ -89,4 +89,4 @@ npx prettier . --write
 
 ---
 
-📬 **Contact:** BenGephardt — [https://github.com/BenGephardt](https://github.com/BenGephardt)
+📬 **Contact:** BenGephardt, [https://github.com/BenGephardt](https://github.com/BenGephardt)
