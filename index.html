@@ -31,7 +31,9 @@
           <p class="brand-mark" aria-hidden="true">BG</p>
           <div class="brand-text">
             <span class="brand-name">Benjamin Gephardt</span>
-            <span class="brand-role">Front-End Web Developer</span>
+            <span class="brand-role"
+              >Accessibility-Focused Front-End Developer</span
+            >
           </div>
         </a>
 
@@ -74,7 +76,7 @@
                   <span class="hero-name-block"
                     ><span class="hero-name">Benjamin Gephardt</span>,</span
                   >
-                  a front-end web developer based in Manitou Springs, Colorado.
+                  an accessibility-focused developer based in Colorado Springs.
                 </h1>
               </div>
 
@@ -412,10 +414,13 @@
                     <dd>
                       Scores 100/100 on Lighthouse accessibility with zero axe
                       DevTools issues. More usefully, auditing it manually found
-                      four failures no scanner caught; including Shift being
-                      unimplemented, which meant a user who couldn't reach a
-                      physical keyboard couldn't type a question mark.
-                      Documented openly in the repo's Known Limitations.
+                      four failures no scanner caught. Fixed the touch-target
+                      failures by switching mobile rows to flex-wrap with a 44px
+                      minimum, after an auto-fit grid approach turned out not to
+                      wrap. The bigger finding: Shift wasn't implemented, so a
+                      user who couldn't reach a physical keyboard couldn't type
+                      a question mark. Documented openly in the repo's Known
+                      Limitations.
                     </dd>
                   </div>
                 </dl>
